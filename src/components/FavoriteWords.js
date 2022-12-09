@@ -2,6 +2,10 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 
 const FavoriteWords = ({ favoriteWords }) => {
+	console.log(favoriteWords);
+	favoriteWords.forEach((word, index) => {
+		console.log(`index: ${index} word: ${word.word}, date: ${word.date}`);
+	});
 	return (
 		<>
 			<Table striped bordered className="mt-2">
@@ -13,11 +17,14 @@ const FavoriteWords = ({ favoriteWords }) => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>Hello</td>
-						<td>25/6/1235</td>
-					</tr>
+					{favoriteWords &&
+						favoriteWords.map((word, index) => (
+							<tr key={index}>
+								<td>{index + 1}</td>
+								<td>{word.word}</td>
+								<td>{new Date(word.date).toDateString()}</td>
+							</tr>
+						))}
 				</tbody>
 			</Table>
 		</>
