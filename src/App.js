@@ -25,13 +25,6 @@ function App() {
 					favoriteWords={favoriteWords}
 					setFavoriteWords={setFavoriteWords}
 				/>
-				<div className="text-center">
-					<img
-						src="https://www.mehr8.ir/wp-content/uploads/2018/11/Mehre8-01.png"
-						alt="logo"
-						className="mt-5 w-25 text-center"
-					/>
-				</div>
 			</div>
 		</div>
 	);

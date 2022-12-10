@@ -56,7 +56,7 @@ const WordSearcher = ({ favoriteWords, setFavoriteWords }) => {
 					<Form.Label>Type your desire</Form.Label>
 					<Form.Control
 						type="text"
-						placeholder="What do you desire for?"
+						placeholder="What do you want?"
 						onChange={handleInput}
 					/>
 				</Form.Group>
