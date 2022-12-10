@@ -1,11 +1,13 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
-const FavoriteWords = ({ favoriteWords }) => {
-	console.log(favoriteWords);
-	favoriteWords.forEach((word, index) => {
-		console.log(`index: ${index} word: ${word.word}, date: ${word.date}`);
-	});
+const FavoriteWords = ({ favoriteWords, setFavoriteWords }) => {
+	const deleteFavoriteWord = (favWord) => {
+		setFavoriteWords((favoriteWords) =>
+			favoriteWords.filter((val) => val.word !== favWord.word)
+		);
+	};
 	return (
 		<>
 			<Table striped bordered className="mt-2">
@@ -14,6 +16,7 @@ const FavoriteWords = ({ favoriteWords }) => {
 						<th>#</th>
 						<th>Word</th>
 						<th>Date Added</th>
+						<th>Operations</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,6 +26,14 @@ const FavoriteWords = ({ favoriteWords }) => {
 								<td>{index + 1}</td>
 								<td>{word.word}</td>
 								<td>{new Date(word.date).toDateString()}</td>
+								<td>
+									<Button
+										onClick={() => deleteFavoriteWord(word)}
+										variant="danger"
+									>
+										Delete
+									</Button>
+								</td>
 							</tr>
 						))}
 				</tbody>
